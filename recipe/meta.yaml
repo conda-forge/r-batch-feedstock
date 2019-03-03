@@ -1,5 +1,4 @@
-{% set version = '1.1-4' %}
-
+{% set version = '1.1-5' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,30 +7,30 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: batch_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/batch_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/batch/batch_{{ version }}.tar.gz
-  sha256: 3819632bd5bcb79d793853f36318545b38353c7466eb06eb73d668a96150680f
+    - {{ cran_mirror }}/src/contrib/batch_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/batch/batch_{{ version }}.tar.gz
+  sha256: 986beeb34d6f27f889034a8c25bd142e811e29ff7b46321e66829428e676af71
 
 build:
+  merge_build_host: True  # [win]
+  number: 0
   noarch: generic
-  number: 1001
-
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
+  host:
     - r-base
-
   run:
     - r-base
 
 test:
   commands:
-    - $R -e "library('batch')"  # [not win]
+    - $R -e "library('batch')"           # [not win]
     - "\"%R%\" -e \"library('batch')\""  # [win]
 
 about:
@@ -43,10 +42,25 @@ about:
     up a permutation test in parallel, etc.). See `parseCommandArgs(...)' for the main
     example of how to use this package.
   license_family: GPL
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
-    - dpryan79
-    - johanneskoester
-    - bgruening
-    - daler
+    - conda-forge/r
+
+# Package: batch
+# Version: 1.1-5
+# Date: 2018-04-16
+# Title: Batching Routines in Parallel and Passing Command-Line Arguments to R
+# Author: Thomas Hoffmann <tjhoffm@gmail.com>
+# Maintainer: Thomas Hoffmann <tjhoffm@gmail.com>
+# Description: Functions to allow you to easily pass command-line arguments into R, and functions to aid in submitting your R code in parallel on a cluster and joining the results afterward (e.g. multiple parameter values for simulations running in parallel, splitting up a permutation test in parallel, etc.). See `parseCommandArgs(...)' for the main example of how to use this package.
+# Suggests: parallel
+# Depends: R (>= 2.14)
+# License: GPL
+# URL: http://sites.google.com/site/thomashoffmannproject/
+# LazyLoad: true
+# NeedsCompilation: no
+# Packaged: 2018-04-16 21:07:26 UTC; tom
+# Repository: CRAN
+# Date/Publication: 2018-04-16 21:44:03 UTC
