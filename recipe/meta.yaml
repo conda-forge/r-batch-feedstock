@@ -35,7 +35,7 @@ test:
 
 about:
   home: http://sites.google.com/site/thomashoffmannproject/
-  license: GPL
+  license: GPL-2.0-or-later
   summary: Functions to allow you to easily pass command-line arguments into R, and functions
     to aid in submitting your R code in parallel on a cluster and joining the results
     afterward (e.g. multiple parameter values for simulations running in parallel, splitting
