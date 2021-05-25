@@ -3,7 +3,7 @@ About r-batch
 
 Home: http://sites.google.com/site/thomashoffmannproject/
 
-Package license: GPL
+Package license: GPL-2.0-or-later
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-batch-feedstock/blob/master/LICENSE.txt)
 
