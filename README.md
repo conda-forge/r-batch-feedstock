@@ -1,11 +1,11 @@
-About r-batch
-=============
+About r-batch-feedstock
+=======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-batch-feedstock/blob/main/LICENSE.txt)
 
 Home: http://sites.google.com/site/thomashoffmannproject/
 
 Package license: GPL-2.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-batch-feedstock/blob/main/LICENSE.txt)
 
 Summary: Functions to allow you to easily pass command-line arguments into R, and functions to aid in submitting your R code in parallel on a cluster and joining the results afterward (e.g. multiple parameter values for simulations running in parallel, splitting up a permutation test in parallel, etc.). See `parseCommandArgs(...)' for the main example of how to use this package.
 
